@@ -6,17 +6,13 @@
     <title>My first Django project</title>
 </head>
 <body>
-    <h1>Hi!its me Danyal.</h1><br>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quas repudiandae obcaecati deserunt tempora.</p><br>
-   <p>hi my name is  {{name}} and i am from {{place}}</p> 
-  
-            
+         
     <h1>Home</h1>
 
-     <li><a href="removepunc">Remove Punctuation</a></li>
-     <li><a href="capitalize">Capitalization</a></li>
-     <li><a href="newline_remove">New Line Remover</a></li>
-     <li><a href="spaceremove">Space Remover</a></li>
-     <li><a href="charcount">Charecter Counter</a></li>
+     <form action="/analyse" , method="GET">
+        <textarea name="text" id="" cols="30" rows="10"></textarea> <br>
+        <input type="checkbox" name="removepunc"> Remove Punctuation <br>
+        <button type="submit">Click me</button>
+     </form>
 </body>
 </html>
