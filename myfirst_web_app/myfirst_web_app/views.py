@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render   #for templates
 
 def index(request):
-    program ={'name':'Danyal','place':'Islamabad'}
-    return render(request, 'index.html',program)
+    # program ={'name':'Danyal','place':'Islamabad'}
+    return render(request, 'index.html')
 
 
 
@@ -12,8 +12,8 @@ def analyse(request):
    #get the text
    djtext = request.GET.get('text','default')
    removepunc = request.GET.get('removepunc','off')
-   print(removepunc)
-   print(djtext)
+#    print(removepunc)
+#    print(djtext)
    punctutaions ='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
    anaylzed = ""
    for char in djtext:
@@ -21,7 +21,7 @@ def analyse(request):
            anaylzed = anaylzed + char
 
    prams = {"purpose":"Remove Punction","anlyzed":anaylzed}       
-   return render(request, 'page1.html',prams)
+   return render(request, 'removepunc.html',prams)
 
 # def capitalize(request):
 #     return HttpResponse('''<h1>about danyal</h1><br>
