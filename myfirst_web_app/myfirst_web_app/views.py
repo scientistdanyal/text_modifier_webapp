@@ -1,22 +1,15 @@
 from django.http import HttpResponse
-
+from django.shortcuts import render   #for templates
 
 def index(request):
-        nav = '''
-            
-            <h1>Home</h1>
-    
-             <li><a href="removepunc">Remove Punctuation</a></li>
-             <li><a href="capitalize">Capitalization</a></li>
-             <li><a href="newline_remove">New Line Remover</a></li>
-             <li><a href="spaceremove">Space Remover</a></li>
-             <li><a href="charcount">Charecter Counter</a></li>
-            '''
-        return HttpResponse(nav)
+    program ={'name':'Danyal','place':'Islamabad'}
+    return render(request, 'index.html',program)
+
+
+
 
 def removepunc(request):
-    return HttpResponse('''<h1>about danyal</h1><br>
-    <a href="/">back to main page</a>''')
+   return render(request, 'page1.html')
 
 def capitalize(request):
     return HttpResponse('''<h1>about danyal</h1><br>
