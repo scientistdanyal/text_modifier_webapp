@@ -58,24 +58,9 @@ def analyse(request):
    # character count
    elif charcount == 'on':
       analyzed = 0
-      for char in djtext:
-         analyzed = analyzed +1
+      analyzed = len(djtext)
       prams = {'purpose':'Count Character','analyzed':analyzed}   
       return render(request,'analyze.html',prams)
    else:
       return HttpResponse('error')
 
-# def capitalize(request):
-#     return HttpResponse('''<h1>about danyal</h1><br>
-#     <a href="/">back to main page</a>''')
-
-# def newline_remove(request):
-#     return HttpResponse('''<h1>about danyal</h1><br>
-#     <a href="/">back to main page</a>''')
-
-# def spaceremove(request):
-#     return HttpResponse('''<h1>about danyal</h1><br>
-#     <a href="/">back to main page</a>''')
-# def charcount(request):
-#     return HttpResponse('''<h1>about danyal</h1><br>
-#     <a href="/">Back to main page</a>''')
