@@ -14,32 +14,56 @@ def analyse(request):
    removepunc = request.GET.get('removepunc','off')
    fullcaps = request.GET.get('fullcaps','off')
    newlineremover = request.GET.get('removeNewLine','off')
+   extraspacesremover = request.GET.get('extraspacesremover','off')
+   charcount = request.GET.get('charcount','off')
 
    # removal of punctuation
    if removepunc == 'on':
     punctutaions ='''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-    anaylzed = ""
+    analyzed = ""
     for char in djtext:
         if char not in punctutaions:
-            anaylzed = anaylzed + char
-    prams = {"purpose":"Remove Punctuation","anlyzed":anaylzed}       
-    return render(request, 'removepunc.html',prams)
+            analyzed = analyzed + char
+    prams = {"purpose":"Remove Punctuation","analyzed":analyzed}       
+    return render(request,'analyze.html',prams)
    
    # capitalization of text
    elif fullcaps == 'on':
-    anaylzed = djtext.upper()
-    prams = {"purpose":"Convert to Uppercase","anlyzed":anaylzed}
-    return render(request, 'removepunc.html',prams)
+    analyzed = djtext.upper()
+    prams = {"purpose":"Convert to Uppercase","analyzed":analyzed}
+    return render(request,'analyze.html',prams)
    
    # new line remover
    elif newlineremover == 'on':
-    anaylzed = ""
+    analyzed = ""
     for char in djtext:
        if char != '\n':
-          anaylzed = anaylzed + char
+          analyzed = analyzed + char
     
-    prams = {"purpose":"New Lines are Removed","anlyzed":anaylzed}
-    return render(request, 'removepunc.html',prams)
+    prams = {"purpose":"New Lines are Removed","analyzed":analyzed}
+    return render(request,'analyze.html',prams)
+   
+   # extra spaces remover
+   elif extraspacesremover == 'on':
+    analyzed = ""
+    for index,char in enumerate(djtext):
+       if djtext[index] ==' ' and djtext == ' ':
+          pass
+       analyzed = analyzed + char
+    
+    prams = {"purpose":"Extra Spaces are Removed","analyzed":analyzed}
+    return render(request,'analyze.html',prams)
+   
+
+   # character count
+   elif charcount == 'on':
+      analyzed = 0
+      for char in djtext:
+         analyzed = analyzed +1
+      prams = {'purpose':'Count Character','analyzed':analyzed}   
+      return render(request,'analyze.html',prams)
+   else:
+      return HttpResponse('error')
 
 # def capitalize(request):
 #     return HttpResponse('''<h1>about danyal</h1><br>

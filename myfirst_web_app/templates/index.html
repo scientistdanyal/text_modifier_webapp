@@ -4,17 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My first Django project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
          
     <h1>Home</h1>
 
-     <form action="/analyse" , method="GET">
-        <textarea name="text" id="" cols="30" rows="10"></textarea> <br>
-        <input type="checkbox" name="removepunc"> Remove Punctuation <br>
-        <input type="checkbox" name="fullcaps"> UPPER CASE <br>
-        <input type="checkbox" name="removeNewLine"> Remove New Line <br>
+    <form action="/analyse" method="GET">
+        <textarea name="text" cols="30" rows="10"></textarea><br>
+        <input type="checkbox" name="removepunc"> Remove Punctuation<br>
+        <input type="checkbox" name="fullcaps"> UPPER CASE<br>
+        <input type="checkbox" name="removeNewLine"> Remove New Line<br>
+        <input type="checkbox" name="extraspacesremover"> Remove Extra Spaces<br>
+        <input type="checkbox" name="charcount"> Character Count<br>
         <button type="submit">Analyze Text</button>
-     </form>
+    </form>
 </body>
 </html>
