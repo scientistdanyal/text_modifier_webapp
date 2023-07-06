@@ -21,13 +21,13 @@ def analyse(request):
                     analyzed += char
             prams = {"purpose": "Remove Punctuation", "analyzed": analyzed}
         djtext = analyzed    
-            # return render(request, 'analyze.html', prams)
+            
 
         if fullcaps == 'on':
             analyzed = djtext.upper()
             prams = {"purpose": "Convert to Uppercase", "analyzed": analyzed}
         djtext = analyzed
-            # return render(request, 'analyze.html', prams)
+            
 
         if newlineremover == 'on':
             analyzed = ""
@@ -36,7 +36,7 @@ def analyse(request):
                     analyzed += char
             prams = {"purpose": "New Lines are Removed", "analyzed": analyzed}
         djtext = analyzed
-            # return render(request, 'analyze.html', prams)
+           
 
         if extraspacesremover == 'on':
             analyzed = ""
@@ -46,14 +46,14 @@ def analyse(request):
                 analyzed += char
             prams = {"purpose": "Extra Spaces are Removed", "analyzed": analyzed}
         djtext = analyzed
-            # return render(request, 'analyze.html', prams)
+            
 
 
         if charcount == 'on':
             analyzed = len(djtext)
             prams = {"purpose": "Count Characters", "analyzed": analyzed}
         djtext = analyzed
-            # return render(request, 'analyze.html', prams)
+            
 
         return render(request, 'analyze.html', prams)
     else:
